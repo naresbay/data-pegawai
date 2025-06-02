@@ -59,4 +59,24 @@ class PegawaiController extends Controller
         // alihkan halaman ke halaman pegawai
         return redirect('/pegawai');
     }
+
+    // method untuk menampilkan form konfirmasi hapus pegawai
+    public function delete($id)
+    {
+        // mengambil data pegawai berdasarkan id yang dipilih
+        $pegawai = DB::table('pegawai')->where('pegawai_id', $id)->first();
+
+        // passing data pegawai ke view hapus.blade.php
+        return view('hapus', ['pegawai' => $pegawai]);
+    }
+
+    // method untuk menghapus data pegawai
+    public function destroy(Request $request)
+    {
+        // hapus data pegawai berdasarkan id
+        DB::table('pegawai')->where('pegawai_id', $request->id)->delete();
+
+        // alihkan halaman ke halaman pegawai
+        return redirect('/pegawai');
+    }
 }
