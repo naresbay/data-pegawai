@@ -21,3 +21,9 @@ Route::get('/pegawai/edit/{id}', [PegawaiController::class, 'edit']);
 
 // route CRUD Pegawai --> update
 Route::post('/pegawai/update', [PegawaiController::class, 'update']);
+
+// route untuk menampilkan form konfirmasi hapus pegawai
+Route::get('/pegawai/hapus/{id}', [PegawaiController::class, 'delete']);
+
+// route untuk menghapus data pegawai
+Route::post('/pegawai/destroy', [PegawaiController::class, 'destroy']);
